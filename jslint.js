@@ -716,6 +716,7 @@ var jslint = (function JSLint() {
                 }
                 break;
             case 'x':
+                back_char();
                 if (some_digits(rx_hexs, true) !== 2) {
                     warn_at('expected_two_digits', line, column - 1);
                 }
