@@ -89,13 +89,13 @@
     column, concat, constant, context, couch, create, d, dead, devel,
     directive, disrupt, dot, duplicate_a, edition, ellipsis, else, empty_block,
     es6, eval, every, expected_a_at_b_c, expected_a_b, expected_a_b_from_c_d,
-    expected_a_before_b, expected_digits_after_a, expected_four_digits,
-    expected_identifier_a, expected_line_break_a_b, expected_regexp_factor_a,
-    expected_space_a_b, expected_string_a, expected_type_string_a, expression,
-    extra, flag, for, forEach, free, from, fud, fudge, function,
-    function_in_loop, functions, g, global, i, id, identifier, import, imports,
-    inc, indexOf, infix_in, init, initial, isArray, isNaN, join, json, keys,
-    label, label_a, lbp, led, length, level, line, lines, live, loop, m,
+    expected_a_before_b, expected_digits_after_a, expected_two_digits, 
+    expected_four_digits, expected_identifier_a, expected_line_break_a_b, 
+    expected_regexp_factor_a, expected_space_a_b, expected_string_a, 
+    expected_type_string_a, expression, extra, flag, for, forEach, free, from, 
+    fud, fudge, function, function_in_loop, functions, g, global, i, id, identifier, 
+    import, imports, inc, indexOf, infix_in, init, initial, isArray, isNaN, join, 
+    json, keys, label, label_a, lbp, led, length, level, line, lines, live, loop, m,
     margin, match, maxerr, maxlen, message, misplaced_a, misplaced_directive_a,
     module, naked_block, name, names, nested_comment, new, node, not_label_a,
     nud, ok, open, option, out_of_scope_a, parameters, pop, property, push,
@@ -294,6 +294,7 @@ var jslint = (function JSLint() {
         expected_a_b_from_c_d: "Expected '{a}' to match '{b}' from line {c} and instead saw '{d}'.",
         expected_a_at_b_c: "Expected '{a}' at column {b}, not column {c}.",
         expected_digits_after_a: "Expected digits after '{a}'.",
+        expected_two_digits: "Expected two digits after '\\x'.",
         expected_four_digits: "Expected four digits after '\\u'.",
         expected_identifier_a: "Expected an identifier and instead saw '{a}'.",
         expected_line_break_a_b: "Expected a line break between '{a}' and '{b}'.",
@@ -710,8 +711,13 @@ var jslint = (function JSLint() {
                     return;
                 }
                 back_char();
-                if (some_digits(rx_hexs, true) !== 4) {
+                if (some_digits(rx_hexs, true) < 4) {
                     warn_at('expected_four_digits', line, column - 1);
+                }
+                break;
+            case 'x':
+                if (some_digits(rx_hexs, true) < 2) {
+                    warn_at('expected_two_digits', line, column - 1);
                 }
                 break;
             case '':
@@ -927,6 +933,7 @@ var jslint = (function JSLint() {
 
                 switch (char) {
                 case '\\':
+                    console.log('subklass \\');
                     escape();
                     return true;
                 case '[':
@@ -972,6 +979,7 @@ var jslint = (function JSLint() {
 // Match a class.
 
                 next_char('[');
+                console.log('klass');
                 if (char === '^') {
                     next_char('^');
                 }
