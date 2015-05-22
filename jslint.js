@@ -383,7 +383,7 @@ var jslint = (function JSLint() {
 // token (sorry it is so long)
         rx_token = /^((\s+)|([a-zA-Z_$][a-zA-Z0-9_$]*)|[(){}\[\]\?,:;'"~`]|=(?:==?|>)?|\.+|\/[*\/]?|\*[\/=]?|\+(?:=|\++)?|-(?:=|-+)?|[\^%]=?|&[&=]?|\|[|=]?|>{1,3}=?|<<?=?|!={0,2}|(0|[1-9][0-9]*))(.*)$/,
         rx_digits = /^([0-9]+)(.*)$/,
-        rx_hexs = /^([0-9a-fA-F]{4}|[0-9a-fA-F]{2})(.*)$/,
+        rx_hexs = /^([0-9a-fA-F]+)(.*)$/,
         rx_octals = /^([0-7]+)(.*)$/,
         rx_bits = /^([01]+)(.*)$/,
 // mega
@@ -1163,7 +1163,6 @@ var jslint = (function JSLint() {
         }
 
         function number() {
-            alert('number');
             if (snippet === '0') {
                 switch (next_char()) {
                 case '.':
@@ -1178,7 +1177,6 @@ var jslint = (function JSLint() {
                     next_char();
                     break;
                 case 'x':
-                alert('number');
                     some_digits(rx_hexs);
                     next_char();
                     break;
