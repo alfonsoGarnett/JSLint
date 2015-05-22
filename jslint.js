@@ -664,6 +664,7 @@ var jslint = (function JSLint() {
 
         function some_digits(rx, quiet) {
             var result = source_line.match(rx);
+                            console.log(result);
             if (result) {
                 char = result[1];
                 column += char.length;
