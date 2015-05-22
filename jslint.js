@@ -632,7 +632,7 @@ var jslint = (function JSLint() {
 // matched an expected value.
 
             if (match !== undefined && char !== match) {
-                console.log('line 635: ', match);
+                console.log('line 635: ', char, match);
                 return stop_at('expected_a_b', line, column, match, char);
             }
             if (source_line) {
