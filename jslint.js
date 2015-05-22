@@ -295,6 +295,7 @@ var jslint = (function JSLint() {
         expected_a_at_b_c: "Expected '{a}' at column {b}, not column {c}.",
         expected_digits_after_a: "Expected digits after '{a}'.",
         expected_four_digits: "Expected four digits after '\\u'.",
+        expected_two_digits: "Expected two digits after '\\x'.",
         expected_identifier_a: "Expected an identifier and instead saw '{a}'.",
         expected_line_break_a_b: "Expected a line break between '{a}' and '{b}'.",
         expected_regexp_factor_a: "Expected a regexp factor and instead saw '{a}'.",
