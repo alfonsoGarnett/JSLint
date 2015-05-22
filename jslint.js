@@ -1163,7 +1163,7 @@ var jslint = (function JSLint() {
         }
 
         function number() {
-            alert('called It');
+            alert('number');
             if (snippet === '0') {
                 switch (next_char()) {
                 case '.':
@@ -1178,6 +1178,7 @@ var jslint = (function JSLint() {
                     next_char();
                     break;
                 case 'x':
+                alert('number');
                     some_digits(rx_hexs);
                     next_char();
                     break;
