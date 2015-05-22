@@ -664,7 +664,6 @@ var jslint = (function JSLint() {
 
         function some_digits(rx, quiet) {
             var result = source_line.match(rx);
-                            console.log(result);
             if (result) {
                 char = result[1];
                 column += char.length;
@@ -979,6 +978,7 @@ var jslint = (function JSLint() {
 // Match a class.
 
                 next_char('[');
+                console.log('klass');
                 if (char === '^') {
                     next_char('^');
                 }
