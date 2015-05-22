@@ -933,6 +933,7 @@ var jslint = (function JSLint() {
 
                 switch (char) {
                 case '\\':
+                    console.log('subklass \\');
                     escape();
                     return true;
                 case '[':
