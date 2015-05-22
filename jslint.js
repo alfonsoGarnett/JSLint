@@ -711,12 +711,12 @@ var jslint = (function JSLint() {
                     return;
                 }
                 back_char();
-                if (some_digits(rx_hexs, true) !== 4) {
+                if (some_digits(rx_hexs, true) < 4) {
                     warn_at('expected_four_digits', line, column - 1);
                 }
                 break;
             case 'x':
-                if (some_digits(rx_hexs, true) !== 2) {
+                if (some_digits(rx_hexs, true) < 2) {
                     warn_at('expected_two_digits', line, column - 1);
                 }
                 break;
