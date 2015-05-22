@@ -1327,6 +1327,7 @@ var jslint = (function JSLint() {
                         (function expr() {
                             var id = lex().id;
                             if (id === '{') {
+                                console.log('line 1330');
                                 return stop_at(
                                     'expected_a_b',
                                     line,
@@ -1545,6 +1546,7 @@ var jslint = (function JSLint() {
 // Attempt to match next_token with an expected id.
 
         if (id !== undefined && next_token.id !== id) {
+            console.log('line 1549');
             return match === undefined
                 ? stop('expected_a_b', next_token, id, artifact())
                 : stop(
@@ -1798,6 +1800,7 @@ var jslint = (function JSLint() {
         if (next_token.id === ';') {
             advance(';');
         } else {
+            console.log('line 1804');
             warn_at(
                 'expected_a_b',
                 token.line,
@@ -2713,6 +2716,7 @@ var jslint = (function JSLint() {
             warn('es6', the_arrow);
         }
         if (next_token.id === '{') {
+            console.log('line 2720');
             warn('expected_a_b', the_arrow, "function", "=>");
             the_arrow.block = block('body');
         } else {
