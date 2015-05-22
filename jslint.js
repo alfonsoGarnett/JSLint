@@ -632,6 +632,7 @@ var jslint = (function JSLint() {
 // matched an expected value.
 
             if (match !== undefined && char !== match) {
+                console.log('line 635');
                 return stop_at('expected_a_b', line, column, match, char);
             }
             if (source_line) {
@@ -950,6 +951,7 @@ var jslint = (function JSLint() {
                     next_char();
                     return true;
                 case ' ':
+                    console.log('line 954');
                     warn_at('expected_a_b', line, column, '\\s', ' ');
                     next_char();
                     return true;
@@ -1040,6 +1042,7 @@ var jslint = (function JSLint() {
                         }
                         break;
                     case ' ':
+                        console.log('line 1045');
                         warn_at('expected_a_b', line, column, '\\s', ' ');
                         break;
                     }
