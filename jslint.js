@@ -1166,7 +1166,7 @@ var jslint = (function JSLint() {
             }
         }
 
-        function number() {
+        function number(snippet) {
             if (snippet === '0') {
                 switch (next_char()) {
                 case '.':
