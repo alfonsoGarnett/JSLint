@@ -664,15 +664,11 @@ var jslint = (function JSLint() {
 
         function some_digits(rx, quiet) {
             var result = source_line.match(rx);
-            console.log("res:             ", result);
             if (result) {
                 char = result[1];
                 column += char.length;
                 source_line = result[2];
                 snippet += char;
-                console.log("snip:        ", snippet);
-                console.log("source_line: ", source_line);
-                console.log("column:      ", column);
             } else {
                 char = '';
                 if (!quiet) {
