@@ -696,7 +696,7 @@ var jslint = (function JSLint() {
             case 't':
             case ' ':
                 break;
-            case 'x':
+            case 'u':
                 if (next_char('u') === '{') {
                     if (some_digits(rx_hexs) > 5) {
                         warn_at('too_many_digits', line, column - 1);
@@ -712,6 +712,11 @@ var jslint = (function JSLint() {
                 back_char();
                 if (some_digits(rx_hexs, true) !== 4) {
                     warn_at('expected_four_digits', line, column - 1);
+                }
+                break;
+            case 'x':
+                if (some_digits(rx_hexs, true) !== 2) {
+                    warn_at('expected_two_digits', line, column - 1);
                 }
                 break;
             case '':
