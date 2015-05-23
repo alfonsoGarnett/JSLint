@@ -711,6 +711,7 @@ var jslint = (function JSLint() {
                     if (next_char() !== '}') {
                         stop_at('expected_a_before_b', line, column, '}', char);
                     }
+                    next_char();
                     return;
                 }
                 back_char();
