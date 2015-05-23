@@ -630,9 +630,7 @@ var jslint = (function JSLint() {
 // Get the next character from the source line. Remove it from the source_line,
 // and append it to the snippet. Optionally check that the previous character
 // matched an expected value.
-                console.log('line 633 (before if): ', char, match);
             if (match !== undefined && char !== match) {
-                console.log('line 635: ', char, match);
                 return stop_at('expected_a_b', line, column, match, char);
             }
             if (source_line) {
@@ -644,7 +642,6 @@ var jslint = (function JSLint() {
                 snippet += ' ';
             }
             column += 1;
-            console.log('line 648', 'col: ' + column, char);
             return char;
         }
 
@@ -701,7 +698,6 @@ var jslint = (function JSLint() {
                 break;
             case 'u':
                 if (next_char('u') === '{') {
-                    console.log('line 703', char);
                     if (some_digits(rx_hexs) > 5) {
                         warn_at('too_many_digits', line, column - 1);
                     }
@@ -937,7 +933,6 @@ var jslint = (function JSLint() {
 
                 switch (char) {
                 case '\\':
-                    console.log('line 937 (subklass):', '\\');
                     escape();
                     return true;
                 case '[':
@@ -983,7 +978,6 @@ var jslint = (function JSLint() {
 // Match a class.
 
                 next_char('[');
-                console.log('line 983 (klass)');
                 if (char === '^') {
                     next_char('^');
                 }
@@ -1084,7 +1078,6 @@ var jslint = (function JSLint() {
 
             snip();
             value = snippet;
-            console.log('1086');
             next_char('/');
 
 // Process dangling flag letters.
