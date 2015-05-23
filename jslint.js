@@ -630,7 +630,7 @@ var jslint = (function JSLint() {
 // Get the next character from the source line. Remove it from the source_line,
 // and append it to the snippet. Optionally check that the previous character
 // matched an expected value.
-
+                console.log('line 633 (before if): ', char, match);
             if (match !== undefined && char !== match) {
                 console.log('line 635: ', char, match);
                 return stop_at('expected_a_b', line, column, match, char);
@@ -700,6 +700,7 @@ var jslint = (function JSLint() {
                 break;
             case 'u':
                 if (next_char('u') === '{') {
+                    console.log('line 703', char);
                     if (some_digits(rx_hexs) > 5) {
                         warn_at('too_many_digits', line, column - 1);
                     }
@@ -934,7 +935,7 @@ var jslint = (function JSLint() {
 
                 switch (char) {
                 case '\\':
-                    console.log('subklass \\');
+                    console.log('line 937 (subklass):', '\\');
                     escape();
                     return true;
                 case '[':
@@ -951,7 +952,6 @@ var jslint = (function JSLint() {
                     next_char();
                     return true;
                 case ' ':
-                    console.log('line 954');
                     warn_at('expected_a_b', line, column, '\\s', ' ');
                     next_char();
                     return true;
@@ -981,7 +981,7 @@ var jslint = (function JSLint() {
 // Match a class.
 
                 next_char('[');
-                console.log('klass');
+                console.log('line 983 (klass)');
                 if (char === '^') {
                     next_char('^');
                 }
@@ -1042,7 +1042,6 @@ var jslint = (function JSLint() {
                         }
                         break;
                     case ' ':
-                        console.log('line 1045');
                         warn_at('expected_a_b', line, column, '\\s', ' ');
                         break;
                     }
@@ -1331,7 +1330,6 @@ var jslint = (function JSLint() {
                         (function expr() {
                             var id = lex().id;
                             if (id === '{') {
-                                console.log('line 1330');
                                 return stop_at(
                                     'expected_a_b',
                                     line,
@@ -1550,7 +1548,6 @@ var jslint = (function JSLint() {
 // Attempt to match next_token with an expected id.
 
         if (id !== undefined && next_token.id !== id) {
-            console.log('line 1549');
             return match === undefined
                 ? stop('expected_a_b', next_token, id, artifact())
                 : stop(
@@ -1804,7 +1801,6 @@ var jslint = (function JSLint() {
         if (next_token.id === ';') {
             advance(';');
         } else {
-            console.log('line 1804');
             warn_at(
                 'expected_a_b',
                 token.line,
@@ -2720,7 +2716,6 @@ var jslint = (function JSLint() {
             warn('es6', the_arrow);
         }
         if (next_token.id === '{') {
-            console.log('line 2720');
             warn('expected_a_b', the_arrow, "function", "=>");
             the_arrow.block = block('body');
         } else {
