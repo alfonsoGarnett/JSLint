@@ -1083,6 +1083,7 @@ var jslint = (function JSLint() {
 
             snip();
             value = snippet;
+            console.log('1086');
             next_char('/');
 
 // Process dangling flag letters.
