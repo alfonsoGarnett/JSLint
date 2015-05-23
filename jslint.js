@@ -630,7 +630,6 @@ var jslint = (function JSLint() {
 // Get the next character from the source line. Remove it from the source_line,
 // and append it to the snippet. Optionally check that the previous character
 // matched an expected value.
-
             if (match !== undefined && char !== match) {
                 return stop_at('expected_a_b', line, column, match, char);
             }
@@ -708,6 +707,7 @@ var jslint = (function JSLint() {
                     if (next_char() !== '}') {
                         stop_at('expected_a_before_b', line, column, '}', char);
                     }
+                    next_char();
                     return;
                 }
                 back_char();
@@ -933,7 +933,6 @@ var jslint = (function JSLint() {
 
                 switch (char) {
                 case '\\':
-                    console.log('subklass \\');
                     escape();
                     return true;
                 case '[':
@@ -979,7 +978,6 @@ var jslint = (function JSLint() {
 // Match a class.
 
                 next_char('[');
-                console.log('klass');
                 if (char === '^') {
                     next_char('^');
                 }
