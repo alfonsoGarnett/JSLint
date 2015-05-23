@@ -644,6 +644,7 @@ var jslint = (function JSLint() {
                 snippet += ' ';
             }
             column += 1;
+            console.log('line 648', 'col: ' + column, char);
             return char;
         }
 
